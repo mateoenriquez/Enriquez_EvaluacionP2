@@ -11,6 +11,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 #define MAX_MESES 12
 #define MAX_INSUMOS 30
@@ -29,10 +30,11 @@ void Ingresos_Egresos_con_Rand(int ingresos[MAX_MESES], int egresos[MAX_MESES]){
 }
 
 void Imprimir_Ingresos_Egresos(int ingresos[MAX_MESES], int egresos[MAX_MESES]){
+     
+    printf("\nDetalle de ingresos y egresos del insumo\n");
     for (int i = 0; i < MAX_MESES; i++)
     {
-        printf("\nIngresos y egresos del mes %d\n", i+1);
-        printf("Ingresos: %d, Egresos %d \n", ingresos[i], egresos[i]);
+        printf("Mes %d: Ingresos: %d, Egresos %d\n",i+1, ingresos[i], egresos[i]);
     }
 
 }
@@ -47,19 +49,26 @@ void Totales(int ingresos[MAX_MESES], int egresos[MAX_MESES]){
         totalEgresos+=egresos[i];
     }
 
-    printf("\nTotal de ingresos y egresos al año\n");
+    printf("\nTotal de ingresos y egresos al ano\n");
     printf("Ingresos: %d  Egresos: %d\n", totalIngresos, totalEgresos);
     
 }
 
 int main(){
 
+    srand(time(NULL));
     int opcion;
+    int insumos[MAX_INSUMOS][MAX_MESES];
 
+    for (int i = 0; i < MAX_INSUMOS ; i++)
+    {
+        Ingresos_Egresos_con_Rand(insumos[i], insumos[i]+MAX_MESES/2);
+    }
+    
     do
     {
-        printf("1. Ingresos y egresos de cada mes por cada insumo\n");
-        printf("2. Total de ingresos y egresos de todo el año por cada insumo\n"),
+        printf("\n1. Ingresos y egresos de cada mes por cada insumo\n");
+        printf("2. Total de ingresos y egresos de todo el ano por cada insumo\n"),
         printf("3. Salir\n");
         printf("Ingrese una opcion: ");
         scanf("%d", &opcion);
@@ -67,10 +76,15 @@ int main(){
         switch (opcion)
         {
         case 1:
-            /* code */
+            for (int i = 0; i < MAX_INSUMOS; i++)
+            {
+                Imprimir_Ingresos_Egresos(insumos[i], insumos[i]+MAX_MESES/2);
+            }
             break;
         case 2:
-            /* code */
+            for (int i = 0; i < MAX_INSUMOS; ++i) {
+                Totales(insumos[i], insumos[i] + MAX_MESES / 2);
+            }
             break;
         case 3:
         printf("Saliendo...\n");
