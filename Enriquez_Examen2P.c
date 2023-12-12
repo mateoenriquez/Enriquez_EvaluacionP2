@@ -12,12 +12,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+//Librerias a usar
 
 #define MAX_MESES 12
 #define MAX_INSUMOS 30
+//Se deinen constantes, en este caso para los meses e insumos como lo plantea el problema
  
 int Num_Aleatorio(){
     return rand()%100+1;
+    //Funcion de numeros aleatorios a usar en la funcion para inicializar los ingresos y egresos
 }
 
 void Ingresos_Egresos_con_Rand(int ingresos[MAX_MESES], int egresos[MAX_MESES]){
@@ -26,7 +29,7 @@ void Ingresos_Egresos_con_Rand(int ingresos[MAX_MESES], int egresos[MAX_MESES]){
         ingresos[i]=Num_Aleatorio();
         egresos[i]=Num_Aleatorio();
     }
-    
+    //Funcion para asignar valores aleatorios a los ingresos y egresos
 }
 
 void Imprimir_Ingresos_Egresos(int ingresos[MAX_MESES], int egresos[MAX_MESES]){
@@ -36,6 +39,7 @@ void Imprimir_Ingresos_Egresos(int ingresos[MAX_MESES], int egresos[MAX_MESES]){
     {
         printf("Mes %d: Ingresos: %d, Egresos %d\n",i+1, ingresos[i], egresos[i]);
     }
+    //Funcion para imprimir los valores de ingresos y egresos de los 30 insumos durante cada uno de los 12 meses
 
 }
 
@@ -51,14 +55,14 @@ void Totales(int ingresos[MAX_MESES], int egresos[MAX_MESES]){
 
     printf("\nTotal de ingresos y egresos al ano\n");
     printf("Ingresos: %d  Egresos: %d\n", totalIngresos, totalEgresos);
-    
+    //Funcion para imprimir los ingresos y egresos totales
 }
 
 int main(){
 
     srand(time(NULL));
     int opcion;
-    int insumos[MAX_INSUMOS][MAX_MESES];
+    int insumos[MAX_INSUMOS][MAX_MESES];//Se inicializa una matriz donde se asignara los valores para el insumo
 
     for (int i = 0; i < MAX_INSUMOS ; i++)
     {
