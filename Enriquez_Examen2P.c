@@ -37,7 +37,20 @@ void Imprimir_Ingresos_Egresos(int ingresos[MAX_MESES], int egresos[MAX_MESES]){
 
 }
 
+void Totales(int ingresos[MAX_MESES], int egresos[MAX_MESES]){
+    int totalIngresos=0;
+    int totalEgresos=0;
 
+    for (int i = 0; i < MAX_MESES; i++)
+    {
+        totalIngresos+=ingresos[i];
+        totalEgresos+=egresos[i];
+    }
+
+    printf("\nTotal de ingresos y egresos al año\n");
+    printf("Ingresos: %d  Egresos: %d\n", totalIngresos, totalEgresos);
+    
+}
 
 int main(){
 
