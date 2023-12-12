@@ -19,7 +19,7 @@ int Num_Aleatorio(){
     return rand()%100+1;
 }
 
-int Ingresos_Egresos(int ingresos[MAX_MESES], int egresos[MAX_MESES]){
+void Ingresos_Egresos_con_Rand(int ingresos[MAX_MESES], int egresos[MAX_MESES]){
     for (int i = 0; i < MAX_MESES; i++)
     {
         ingresos[i]=Num_Aleatorio();
@@ -27,6 +27,17 @@ int Ingresos_Egresos(int ingresos[MAX_MESES], int egresos[MAX_MESES]){
     }
     
 }
+
+void Imprimir_Ingresos_Egresos(int ingresos[MAX_MESES], int egresos[MAX_MESES]){
+    for (int i = 0; i < MAX_MESES; i++)
+    {
+        printf("\nIngresos y egresos del mes %d\n", i+1);
+        printf("Ingresos: %d, Egresos %d \n", ingresos[i], egresos[i]);
+    }
+
+}
+
+
 
 int main(){
 
