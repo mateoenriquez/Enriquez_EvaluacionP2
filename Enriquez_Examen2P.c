@@ -13,14 +13,25 @@
 #include <stdlib.h>
 
 #define MAX_MESES 12
-#define MAX_IUNSUMOS 30
+#define MAX_INSUMOS 30
+ 
+int Num_Aleatorio(){
+    return rand()%100+1;
+}
 
-int 
+int Ingresos_Egresos(int ingresos[MAX_MESES], int egresos[MAX_MESES]){
+    for (int i = 0; i < MAX_MESES; i++)
+    {
+        ingresos[i]=Num_Aleatorio();
+        egresos[i]=Num_Aleatorio();
+    }
+    
+}
+
 int main(){
 
-    int insumo, cantidad, mes, opcion;
+    int opcion;
 
-    
     do
     {
         printf("1. Ingresos y egresos de cada mes por cada insumo\n");
